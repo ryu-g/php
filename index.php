@@ -1,4 +1,10 @@
 
+<!DOCTYPE HTML>
+<link rel="stylesheet" href="style.css">
+<html lang="ja">
+<title>PHPサンプル</title>
+<body>
+
 <?php
 	$filename = 'counter.dat'; 	// counter.datというカウント数を書き込むテキストファイル
 	$fp = fopen($filename, "r+"); // counter.datファイルを fopenで開く
@@ -22,10 +28,6 @@ echo "これはechoを用いて記述しています。そのままだと改行�
 echo "<br>";
 echo "しかし、HTMLタグを記述可能です。<h3>こんなふうに</h3>";
  ?>
-<!DOCTYPE HTML>
-<html lang="ja">
-<title>PHPサンプル</title>
-<body>
 <h1>Hello, World! <?php echo "from PHP"; ?></h1>
 <h3>変数とデータ型</h3>
 <ul>
