@@ -1,3 +1,36 @@
+
+<?php
+	$filename = 'counter.dat';　// counter.datというカウント数を書き込むテキストファイル
+	?>
+<?php
+	$fp = fopen($filename, "r+");　// counter.datファイルを fopenで開く
+ ?>
+
+<?php
+	$count = fgets($fp,32);　// fgets関数でcounter.datに書かれたカウント数を読み込む
+?>
+<?php
+	$count++; // counter.datに書かれたカウント数を加算
+ ?>
+<?php
+	fseek($fp, 0); // fseek関数でcounter.datの読み書きを行う場所を先頭に戻す
+ ?>
+<?php
+	fputs($fp, $count); // fputs関数でカウントされた数をファイルに書き込む
+ ?>
+<?php
+	flock($fp, LOCK_UN); // flock関数でファイルを上書きされないようにロックする
+ ?>
+<?php
+	fclose($fp); // fclose関数でファイルを閉じる
+ ?>
+<?php
+	echo "<p>このページは";
+	echo $count;
+	echo "回開かれました</p>";// カウントされた数字を表示
+ ?>
+
+
 <?php
 //1行コメント
 echo "hello world from the php";
@@ -27,21 +60,9 @@ echo "しかし、HTMLタグを記述可能です。<h1>こんなふうに</h1>"
 <p><?php echo "var_dump(__FILE__);は自身が記述されているファイル名を返すよ -> "; var_dump(__FILE__); ?></p><!-- ファイル名 -->
 <p><?php echo "var_dump(__DIR__);はこのファイルが置いてあるディレクトリを返すよ -> "; var_dump(__DIR__); ?></p><!-- このファイルのあるディレクトリ -->
 <h3>定数</h3>
-<p>define("MY_EMAIL","taguchi@gmail.com");</p>
+<p>define("MY_EMAIL","*********@gmail.com");</p>
 <p>ehco MY_EMAIL</p>
 <h3>文字列</h3>
-<?php
-$name ="ryuji";
-$s1 ="hello $name \n hello again";
-$s2 ="hello {$name} \n hello again";
-$s3 ="hello ${name} \n hello again";
-$s4 ='hello $name \n hello again';
-var_dump($s1);
-var_dump($s2);
-var_dump($s3);
-var_dump($s4);
-$s = "hello"." world";
-var_dump($s);
- ?>
+
 </body>
 </html>
