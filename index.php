@@ -1,30 +1,13 @@
 
 <?php
-	$filename = 'counter.dat';　// counter.datというカウント数を書き込むテキストファイル
-	?>
-<?php
-	$fp = fopen($filename, "r+");　// counter.datファイルを fopenで開く
- ?>
-
-<?php
-	$count = fgets($fp,32);　// fgets関数でcounter.datに書かれたカウント数を読み込む
-?>
-<?php
+	$filename = 'counter.dat'; 	// counter.datというカウント数を書き込むテキストファイル
+	$fp = fopen($filename, "r+"); // counter.datファイルを fopenで開く
+	$count = fgets($fp,32);// fgets関数でcounter.datに書かれたカウント数を読み込
 	$count++; // counter.datに書かれたカウント数を加算
- ?>
-<?php
 	fseek($fp, 0); // fseek関数でcounter.datの読み書きを行う場所を先頭に戻す
- ?>
-<?php
 	fputs($fp, $count); // fputs関数でカウントされた数をファイルに書き込む
- ?>
-<?php
 	flock($fp, LOCK_UN); // flock関数でファイルを上書きされないようにロックする
- ?>
-<?php
 	fclose($fp); // fclose関数でファイルを閉じる
- ?>
-<?php
 	echo "<p>このページは";
 	echo $count;
 	echo "回開かれました</p>";// カウントされた数字を表示
@@ -33,11 +16,11 @@
 
 <?php
 //1行コメント
-echo "hello world from the php";
-echo "hello again";
+echo "hello world from the php<br>";
+echo "hello again<br>";
 echo "これはechoを用いて記述しています。そのままだと改行されません。";
 echo "<br>";
-echo "しかし、HTMLタグを記述可能です。<h1>こんなふうに</h1>";
+echo "しかし、HTMLタグを記述可能です。<h3>こんなふうに</h3>";
  ?>
 <!DOCTYPE HTML>
 <html lang="ja">
