@@ -49,5 +49,23 @@ echo "しかし、HTMLタグを記述可能です。<h3>こんなふうに</h3>"
 <p>ehco MY_EMAIL</p>
 <h3>文字列</h3>
 
+
+<?php
+	// UNIX TIMESTAMPを[$timestamp]という変数に格納する
+	$timestamp = time() ;
+
+	// 出力する
+	echo "time()がこれ<br>";
+	echo $timestamp ;
+	echo "<br><br>";
+	// $_SERVER['REQUEST_TIME']を出力する
+	echo "&#36;SERVER['REQUEST_TIME']がこれ<br>";
+	echo $_SERVER['REQUEST_TIME'] ;
+	echo "date()で日時を出力"
+
+	echo date( "Y/m/d" , $timestamp ) ;
+	echo date( "Y/m/d" ) ;
+?>
+
 </body>
 </html>
