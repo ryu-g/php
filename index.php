@@ -47,23 +47,50 @@ echo "しかし、HTMLタグを記述可能です。<h3>こんなふうに</h3>"
 <h3>定数</h3>
 <p>define("MY_EMAIL","*********@gmail.com");</p>
 <p>ehco MY_EMAIL</p>
-<h3>文字列</h3>
+<h2>文字列</h2>
+<p>出力について</p>
+<ul>
+	<li>echo - 出力文字列を複数指定できる。カンマ区切り。返値は持たない。</li>
+	<li>print - 出力文字列は一種類のみ。カンマで区切るとError。返値を持つ。値は文字列ではなく1</li>
+</ul>
+<h4>ヒアドキュメント</h4>
+こんな風に書きました。
+<div class="code">
+print <<< EOS
+お元気ですか？&lt;br/&gt;<br>
+いいお天気ですね。&lt;br/&gt;<br>
+ではさようなら。
+EOS;
+</div>
+<p>出力結果は以下。</p>
+<div class="result">
+<?php
+print <<< EOS
+お元気ですか？<br />
+いいお天気ですね。<br />
+ではさようなら。
+EOS;
+?>
+</div>
+
+
+
+<h4>文字列の連結</h4>
+<p>文字列を連結する時は"String"+"String"はダメです</p>
+<p>"String"."String"で連結します。</p>
 
 
 <?php
-	// UNIX TIMESTAMPを[$timestamp]という変数に格納する
 	$timestamp = time() ;
-
-	// 出力する
 	echo "time()がこれ<br>";
 	echo $timestamp ;
 	echo "<br><br>";
-	// $_SERVER['REQUEST_TIME']を出力する
 	echo "&#36;SERVER['REQUEST_TIME']がこれ<br>";
 	echo $_SERVER['REQUEST_TIME'] ;
-	echo "date()で日時を出力"
+	echo "date()で日時を出力";
 
-	echo date( "Y/m/d" , $timestamp ) ;
+	echo date( "Y/m/d" , $timestamp );
+	echo "<br>";
 	echo date( "Y/m/d" ) ;
 ?>
 
