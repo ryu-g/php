@@ -6,17 +6,14 @@
 <body>
 
 <?php
-	$filename = 'counter.dat'; 	// counter.datというカウント数を書き込むテキストファイル
-	$fp = fopen($filename, "r+"); // counter.datファイルを fopenで開く
-	$count = fgets($fp,32);// fgets関数でcounter.datに書かれたカウント数を読み込
-	$count++; // counter.datに書かれたカウント数を加算
-	fseek($fp, 0); // fseek関数でcounter.datの読み書きを行う場所を先頭に戻す
-	fputs($fp, $count); // fputs関数でカウントされた数をファイルに書き込む
-	flock($fp, LOCK_UN); // flock関数でファイルを上書きされないようにロックする
-	fclose($fp); // fclose関数でファイルを閉じる
-	echo "<p>このページは";
-	echo $count;
-	echo "回開かれました</p>";// カウントされた数字を表示
+	$filename = 'counter.dat';
+	$fp = fopen($filename, "r+");
+	$count = fgets($fp,32)+1;
+	fseek($fp, 0);
+	fputs($fp, $count);
+	flock($fp, LOCK_UN);
+	fclose($fp);
+	echo "<p>このページは".$count."回開かれました</p>";
  ?>
 
 
@@ -49,7 +46,8 @@ echo "しかし、HTMLタグを記述可能です。<h3>こんなふうに</h3>"
 <p>ehco MY_EMAIL</p>
 <h2>文字列</h2>
 <p>出力について</p>
-
+<p>echoとprintを多く使うことになりそう</p>
+<p>使用例が以下のとおり。</p>
 <div class="code">
 &lt;?php <br>
 	print "hello,world. from PHP with print. &lt;br&gt;";<br>
@@ -61,6 +59,7 @@ echo "しかし、HTMLタグを記述可能です。<h3>こんなふうに</h3>"
 	print $value;<br>
  ?&gt;
 </div>
+出力結果がこれです。
 <div class="result">
 <?php
 	print "hello,world. from PHP with print. <br>";
