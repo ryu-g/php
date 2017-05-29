@@ -75,8 +75,18 @@ EOS;
 
 
 <h4>文字列の連結</h4>
-<p>文字列を連結する時は"String"+"String"はダメです</p>
-<p>"String"."String"で連結します。</p>
+<p>文字列を連結する時は'String'+'String'はダメです</p>
+<p>'String'.'String'で連結します。</p>
+
+たとえば、名前の文字だけ変化するこういうテンプレ出力を作りたいときは
+<div class="result">
+<?php
+	$nameA = '佐藤';
+	$nameB = 'Sato';
+	print $nameA.'さん。こんにちは。<br>';
+	print 'wellcome,Mr.'.$nameB.'<br>';
+?>
+</div>
 
 <p>こんなふうにかきます</p>
 <div class="code">
@@ -86,15 +96,6 @@ EOS;
 	print $nameA.'さん。こんにちは。';<br>
 	print 'wellcome,Mr.'.$nameB;<br>
  ?&gt;<br>
-</div>
-こんなふうに出ます
-<div class="result">
-<?php
-	$nameA = '佐藤';
-	$nameB = 'Sato';
-	print $nameA.'さん。こんにちは。<br>';
-	print 'wellcome,Mr.'.$nameB.'<br>';
-?>
 </div>
 
 <?php
