@@ -51,18 +51,26 @@ echo "しかし、HTMLタグを記述可能です。<h3>こんなふうに</h3>"
 <p>出力について</p>
 
 <div class="code">
-<p>hogehogehoge</p>
-<p>hogehogehoge</p>
-<p>hogehogehoge</p>
-<p>hogehogehoge</p>
+&lt;?php <br>
+	print "hello,world. from PHP with print. &lt;br&gt;";<br>
+	echo "hello,world. from PHP with echo. &lt;br&gt;&lt;br&gt;";<br>
+<br>
+	print "printは引数文字列は一つです。&lt;br&gt;";<br>
+	echo "echoは引数文字列を複数取ることもできます。","ソース部分を見てみてね。&lt;br&gt;";<br>
+	$value = print "これはvalueに代入しようとた文字列です。次の行ではvalueをprintで表示しますが・・・&lt;br&gt;";<br>
+	print $value;<br>
+ ?&gt;
 </div>
 <div class="result">
 <?php
-	print "hello,world.from PHP with print. <br>";
-	echo "hello,world.from PHP with echo. <br><br>";
+	print "hello,world. from PHP with print. <br>";
+	echo "hello,world. from PHP with echo. <br><br>";
 
 	print "printは引数文字列は一つです。<br>";
-	echo "echoは引数文字列を複数取ることがｄきます。","こんなふうに";
+	echo "echoは引数文字列を複数取ることもできます。","ソース部分を見てみてね。<br>";
+
+	$value = print "これはvalueに代入しようとた文字列です。次の行ではvalueをprintで表示しますが・・・<br>";
+	print $value;
  ?>
 </div>
 
