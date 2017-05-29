@@ -74,11 +74,28 @@ EOS;
 </div>
 
 
-
 <h4>文字列の連結</h4>
 <p>文字列を連結する時は"String"+"String"はダメです</p>
 <p>"String"."String"で連結します。</p>
 
+<p>こんなふうにかきます</p>
+<div class="code">
+&lt;?php <br>
+	$nameA='佐藤';<br>
+	$nameB='Sato';<br>
+	print $nameA.'さん。こんにちは。';<br>
+	print 'wellcome,Mr.'.$nameB;<br>
+ ?&gt;<br>
+</div>
+こんなふうに出ます
+<div class="result">
+<?php
+	$nameA = '佐藤';
+	$nameB = 'Sato';
+	print $nameA.'さん。こんにちは。<br>';
+	print 'wellcome,Mr.'.$nameB.'<br>';
+?>
+</div>
 
 <?php
 	$timestamp = time() ;
