@@ -49,6 +49,24 @@ echo "しかし、HTMLタグを記述可能です。<h3>こんなふうに</h3>"
 <p>ehco MY_EMAIL</p>
 <h2>文字列</h2>
 <p>出力について</p>
+
+<div class="code">
+<p>hogehogehoge</p>
+<p>hogehogehoge</p>
+<p>hogehogehoge</p>
+<p>hogehogehoge</p>
+</div>
+<div class="result">
+<?php
+	print "hello,world.from PHP with print. <br>";
+	echo "hello,world.from PHP with echo. <br><br>";
+
+	print "printは引数文字列は一つです。<br>";
+	echo "echoは引数文字列を複数取ることがｄきます。","こんなふうに";
+ ?>
+</div>
+
+
 <ul>
 	<li>echo - 出力文字列を複数指定できる。カンマ区切り。返値は持たない。</li>
 	<li>print - 出力文字列は一種類のみ。カンマで区切るとError。返値を持つ。値は文字列ではなく1</li>
@@ -72,8 +90,6 @@ print <<< EOS
 EOS;
 ?>
 </div>
-
-
 <h4>文字列の連結</h4>
 <p>文字列を連結する時は'String'+'String'はダメです</p>
 <p>'String'.'String'で連結します。</p>
