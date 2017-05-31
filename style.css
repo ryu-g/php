@@ -14,3 +14,7 @@ div.result{
 	margin: 5px;
 	padding: 10px;
 }
+
+form>input{
+	margin: 5px 0;
+}

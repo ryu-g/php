@@ -122,7 +122,7 @@ EOS;
 </div>
 
 <h2>sqlを使うよ(phpは7.0.6)</h2>
-<p>参考：http://php.net/manual/ja/mysqli.select-db.php</p>
+<p>Cpied from：http://php.net/manual/ja/mysqli.select-db.php</p>
 <div class="code">
 &lt;?php<br>
 <br>
@@ -186,7 +186,14 @@ if ($result = mysqli_query($link, "SELECT DATABASE()")) {
 mysqli_close($link);
 ?>
 </div>
-
+<h3>フォームから情報をデータベースに登録する</h3>
+<form action="regist.php" method="post">
+  <input type="text" name="name" size="10" value="" placeholder="おなまえ" /><br />
+  <input type="text" name="workdetail" size="30" value="" placeholder="業務内容" /><br />
+  <input type="radio" name="stend" size="30" value="start"/>start <br>
+  <input type="radio" name="stend" size="30" value="end" />end<br>
+  <input type="submit" value="登録する" />
+</form>
 
 <div class="code">
 	mysql_error
