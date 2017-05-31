@@ -16,26 +16,40 @@ if (!$result) {
   exit('データベースを選択できませんでした。');
 }
 
-$result = mysqi_query('SET NAMES utf8', $link);
+$result = mysqli_query($link,'SET NAMES utf8');
 if (!$result) {
   exit('文字コードを指定できませんでした。');
+  echo '<a href="index.php">戻る</a> ';
 }
+$userID 	= $_REQUEST['userID'];
+$date		= $_REQUEST['date'];
+$start		= $_REQUEST['start'];
+$finish		= $_REQUEST['finish'];
+//$worktime	= $finish - $start;
 
-$name   = $_REQUEST['no'];
-$name = $_REQUEST['name'];
-$tel  = $_REQUEST['tel'];
+//仕事を開始したときに名前と仕事開始時間を記録
+	$result = mysqli_query($link , "INSERT INTO worktime(userID, start, finish) VALUES('$userID', '$start', '$finish')");
+	if (!$result) {
+	  exit('データを登録できませんでした。');
+	}
+	//ここで日付を変換する
 
-$result = mysql_query("INSERT INTO address(no, name, tel) VALUES('$no', '$name', '$tel')", $link);
-if (!$result) {
-  exit('データを登録できませんでした。');
-}
+//仕事を終了したときに終了時刻を追加
+	$result = mysqli_query($link , "UPDATE worktime set finish = $finish where userID　=　$userID";
+	if (!$result) {
+	  exit('データを更新できませんでした。');
+	}
+	//作業時間を計算
+	$date1 = new DateTime(SELECT start $start);
+	$date2 = new DateTime($finish);
+	$diff = $date1->diff($date2);
 
-$con = mysql_close($con);
-if (!$con) {
+$con = mysql_close($link);
+if (!$link) {
   exit('データベースとの接続を閉じられませんでした。');
 }
-
 ?>
+
 <p>登録が完了しました。<br /><a href="index.html">戻る</a></p>
 </body>
 </html>
