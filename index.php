@@ -121,19 +121,105 @@ EOS;
  ?&gt;<br>
 </div>
 
-<?php
-	$timestamp = time() ;
-	echo "time()がこれ<br>";
-	echo $timestamp ;
-	echo "<br><br>";
-	echo "&#36;SERVER['REQUEST_TIME']がこれ<br>";
-	echo $_SERVER['REQUEST_TIME'] ;
-	echo "date()で日時を出力";
+<h2>sqlを使うよ(phpは7.0.6)</h2>
+<p>参考：http://php.net/manual/ja/mysqli.select-db.php</p>
+<div class="code">
+&lt;?php<br>
+<br>
+$link = mysqli_connect("localhost", "root", "root");<br>
+<br>
+/* 接続状況をチェックします */<br>
+if (mysqli_connect_errno()) {<br>
+    printf("Connect failed: %s\n", mysqli_connect_error());<br>
+    exit();<br>
+    }<br>
+<br>
+/* 現在のデフォルトデータベース名を返します */<br>
+if ($result = mysqli_query($link, "SELECT DATABASE()")) {<br>
+    $row = mysqli_fetch_row($result);<br>
+    printf("Default database is %s.\n", $row[0]);<br>
+    mysqli_free_result($result);<br>
+    }<br>
+<br>
+/* データベースを world に変更します */<br>
+mysqli_select_db($link, "999sample");<br>
+<br>
+/* 現在のデフォルトデータベース名を返します */<br>
+if ($result = mysqli_query($link, "SELECT DATABASE()")) {<br>
+    $row = mysqli_fetch_row($result);<br>
+    printf("Default database is %s.\n", $row[0]);<br>
+    mysqli_free_result($result);<br>
+    }<br>
 
-	echo date( "Y/m/d" , $timestamp );
-	echo "<br>";
-	echo date( "Y/m/d" ) ;
+mysqli_close($link);
+?&gt;
+</div>
+<p>成功していればこんな感じに出力されます</p>
+<div class="result">
+<?php
+
+$link = mysqli_connect("localhost", "root", "root");
+
+/* 接続状況をチェックします */
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
+
+/* 現在のデフォルトデータベース名を返します */
+if ($result = mysqli_query($link, "SELECT DATABASE()")) {
+    $row = mysqli_fetch_row($result);
+    printf("Default database is %s.\n", $row[0]);
+    mysqli_free_result($result);
+}
+
+/* データベースを world に変更します */
+mysqli_select_db($link, "999sample");
+
+/* 現在のデフォルトデータベース名を返します */
+if ($result = mysqli_query($link, "SELECT DATABASE()")) {
+    $row = mysqli_fetch_row($result);
+    printf("Default database is %s.\n", $row[0]);
+    mysqli_free_result($result);
+}
+
+mysqli_close($link);
 ?>
+</div>
+
+
+<div class="code">
+	mysql_error
+string mysql_error([resource link_identifier])
+</div>
+<div class="result">
+	直近のMySQL関数からのエラー文字列を返します。MySQLデータベースバック
+エンドから返ってくるエラーは、警告を発生しません。
+代わりに mysql_error() を用いて エラー文字列を取得してください。
+
+引数：
+  link_identifier  MySQLリンクID
+返り値：
+  直近のMySQL関数からのエラー文字列を返します。エラーが発生していな
+    い場合には、'' (空文字列) を返します。
+</div>
+
+
+<?php
+	// $timestamp = time() ;
+	// echo "time()がこれ<br>";
+	// echo $timestamp ;
+	// echo "<br><br>";
+	// echo "&#36;SERVER['REQUEST_TIME']がこれ<br>";
+	// echo $_SERVER['REQUEST_TIME'] ;
+	// echo "date()で日時を出力";
+
+	// echo date( "Y/m/d" , $timestamp );
+	// echo "<br>";
+	// echo date( "Y/m/d" ) ;
+?>
+
+
 
 </body>
 </html>
