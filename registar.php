@@ -27,14 +27,15 @@ $start		= $_REQUEST['start'];
 $finish		= $_REQUEST['finish'];
 //$worktime	= $finish - $start;
 
-//仕事を開始したときに名前と仕事開始時間を記録
+//仕事を開始したときに名前と仕事開始時間を記録・デフォルトの出勤アクションにより対処
 	$result = mysqli_query($link , "INSERT INTO worktime(userID, start, finish) VALUES('$userID', '$start', '$finish')");
 	if (!$result) {
 	  exit('データを登録できませんでした。');
 	}
 	//ここで日付を変換する
 
-//仕事を終了したときに終了時刻を追加
+
+	//仕事を終了したときに終了時刻を追加・条件分け先
 	$result = mysqli_query($link , "UPDATE worktime set finish = $finish where userID　=　$userID";
 	if (!$result) {
 	  exit('データを更新できませんでした。');
