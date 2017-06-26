@@ -189,7 +189,7 @@ mysqli_close($link);
 <h3>フォームから情報をデータベースに登録する</h3>
 <form action="registar.php" method="post">
   <input type="text" name="name" size="10" value="" placeholder="おなまえ" /><br />
-  <input type="text" name="date" size="10" value="" placeholder="日付" /><br />
+  <input type="text" name="date" size="20" value="" placeholder="日付(YYYY-MM-DD)" /><br />
   <input type="text" name="start" size="10" value="" placeholder="10:30(半角)" /><br />
   <input type="text" name="finish" size="10" value="" placeholder="18:00(半角)" /><br />
   <input type="submit" value="お仕事を開始する" />

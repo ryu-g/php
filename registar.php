@@ -32,8 +32,8 @@ $finish		= $_REQUEST['finish'];
 	if (!$result) {
 	  exit('データを登録できませんでした。');
 	}
-	//ここで日付を変換する
-
+	//作業した日の情報を作成
+	$tmp = new DateTime($date.$start);
 
 	//仕事を終了したときに終了時刻を追加・条件分け先
 	$result = mysqli_query($link , "UPDATE worktime set finish = $finish where userID　=　$userID";
@@ -44,11 +44,10 @@ $finish		= $_REQUEST['finish'];
 	$date1 = new DateTime(SELECT start $start);
 	$date2 = new DateTime($finish);
 	$diff = $date1->diff($date2);
-
-$con = mysql_close($link);
-if (!$link) {
-  exit('データベースとの接続を閉じられませんでした。');
-}
+	$con = mysql_close($link);
+	if (!$link) {
+		exit('データベースとの接続を閉じられませんでした。');
+	}
 ?>
 
 <p>登録が完了しました。<br /><a href="index.html">戻る</a></p>
